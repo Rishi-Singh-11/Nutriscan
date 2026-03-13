@@ -1,0 +1,28 @@
+# ──────────────────────────────────────────────
+#  NutriScan Pro — .gitignore
+# ──────────────────────────────────────────────
+
+# Streamlit secrets vault (contains your API key!)
+.streamlit/
+
+# SQLite database (contains personal user data!)
+*.db
+*.sqlite
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+env/
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+*.swp
