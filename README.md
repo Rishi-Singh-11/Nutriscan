@@ -1,77 +1,41 @@
 # 🥗 NutriScan Pro
-
 **AI-Powered Nutrition Intelligence** — built with Streamlit + Gemini 1.5 Flash.
 
-Upload a photo of any meal and get instant calorie & macro breakdowns, tracked against your personalized daily goal.
+Live Demo: [nutriscanscanner.streamlit.app](https://nutriscanscanner.streamlit.app/)
+
+NutriScan Pro is a full-stack AI application designed to simplify calorie tracking. Instead of manually searching for every ingredient, users simply snap a photo. The AI analyzes the image, estimates portions, and provides a macro-nutrient breakdown that logs directly into a personalized dashboard.
 
 ---
 
-## Project Structure
+## ✨ Features
 
-```
-nutriscan-pro/
-├── app.py                  # Main Streamlit app — UI, routing, AI calls
-├── database.py             # "The Accountant" — all SQLite logic
-├── requirements.txt        # Python dependencies
-├── .gitignore              # Keeps your secrets & DB local
-└── .streamlit/
-    └── secrets.toml        # 🔒 LOCAL ONLY — your API key vault
-```
+- **🎨 Glassmorphism UI**: A modern, dark-themed interface with neon accents and frosted-glass components.
+- **🤖 AI Vision Scanning**: Powered by **Gemini 1.5 Flash** to identify food items and estimate calories, protein, carbs, and fats from a single image.
+- **🔐 Secure Authentication**: Built-in Login/Signup system using SQLite and SHA-256 password hashing.
+- **🧮 Personalized Goals**: Calculates daily targets using the **Mifflin-St Jeor Equation** based on age, weight, height, and activity level.
+- **📊 Progress Analytics**: Visualizes daily calorie consumption vs. goals and displays a 7-day trend chart using Plotly.
+- **📱 Mobile Ready**: Fully responsive design, ready to be "Added to Home Screen" on iOS and Android.
 
 ---
 
-## Quick Start
+## 🛠️ Tech Stack
 
-### 1. Clone & install
-
-```bash
-git clone https://github.com/yourname/nutriscan-pro.git
-cd nutriscan-pro
-pip install -r requirements.txt
-```
-
-### 2. Add your Gemini API key
-
-Get a free key at [aistudio.google.com](https://aistudio.google.com/app/apikey), then:
-
-```toml
-# .streamlit/secrets.toml
-GEMINI_API_KEY = "your_key_here"
-```
-
-### 3. Run
-
-```bash
-streamlit run app.py
-```
+- **Frontend**: [Streamlit](https://streamlit.io/) (Python-based web framework)
+- **AI/ML**: [Google Gemini 1.5 Flash](https://aistudio.google.com/) (Vision-Language Model)
+- **Database**: [SQLite](https://www.sqlite.org/index.html) (Local relational storage)
+- **Visualization**: [Plotly](https://plotly.com/) & [Pandas](https://pandas.pydata.org/)
+- **Image Processing**: [Pillow (PIL)](https://python-pillow.org/)
 
 ---
 
-## Features
+## 📂 Project Structure
 
-| Feature | Detail |
-|---|---|
-| 🔐 Auth | SQLite-backed login/signup with SHA-256 hashed passwords |
-| 🧮 Calorie Goal | Mifflin-St Jeor equation + activity multiplier + goal adjustment |
-| 🤖 AI Scan | Gemini 1.5 Flash analyzes food photos → JSON macros |
-| 📊 Dashboard | Metric cards, progress bar, weekly Plotly trend chart |
-| 🍽️ Meal Log | Per-user daily meal history with macro breakdowns |
-| 🎨 UI | Glassmorphism dark theme with neon cyan accents |
-
----
-
-## Tech Stack
-
-- **Frontend**: Streamlit + custom CSS Glassmorphism
-- **AI**: Google Gemini 1.5 Flash (`google-generativeai`)
-- **Database**: SQLite via Python `sqlite3` (zero config)
-- **Charts**: Plotly
-- **Nutrition math**: Mifflin-St Jeor BMR equation
-
----
-
-## Security Notes
-
-- `GEMINI_API_KEY` lives only in `.streamlit/secrets.toml` — never committed
-- `nutriscan.db` is gitignored — user data stays local
-- Passwords are SHA-256 hashed before storage
+```text
+Nutriscan/
+├── .streamlit/
+│   └── secrets.toml     # (Local only) API Keys & Secrets
+├── .gitignore           # Prevents secrets and DB from being leaked
+├── app.py               # Main application logic & UI
+├── database.py          # SQLite schema and database functions
+├── requirements.txt     # List of Python dependencies
+└── README.md            # Project documentation
