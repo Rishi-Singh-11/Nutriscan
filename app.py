@@ -35,7 +35,7 @@ db.init_db()
 try:
     genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
     # CHANGE THE LINE BELOW (Line 43)
-    gemini = genai.GenerativeModel("gemini-2.0-flash")
+    gemini = genai.GenerativeModel("gemini-1.5-flash")
 except Exception:
     gemini = None
 # ─────────────────────────────────────────────
