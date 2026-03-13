@@ -34,10 +34,11 @@ db.init_db()
 
 try:
     genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-    gemini = genai.GenerativeModel("gemini-1.5-flash")
-except Exception:
-    gemini = None  # Graceful degradation if key missing
-
+    # Using the current stable version
+    gemini = genai.GenerativeModel("gemini-1.5-flash") 
+except Exception as e:
+    st.error(f"Gemini Error: {e}") # This will help us see if it's a key issue or model issue
+    gemini = None
 # ─────────────────────────────────────────────
 #  Session State defaults
 # ─────────────────────────────────────────────
